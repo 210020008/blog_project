@@ -1,0 +1,12 @@
+<%- include("./partials/header") -%>
+<h1>Home</h1>
+<p><%= homeStartingContent %></p>
+<br>
+<% for (var i = 0; i < posts.length; i++) { %>
+    <h2><%= posts[i].postTitle %></h2>
+    <% var truncatedPostBody = posts[i].postBody.length > 100 ? posts[i].postBody.slice(0, 100) + '...' : posts[i].postBody; %>
+    <p><%=truncatedPostBody%><a href="/posts/<%= _.kebabCase(posts[i].postTitle) %>">Learn More</a></p>
+    <br>
+<% } %>
+<%- include("./partials/footer") -%>
+
